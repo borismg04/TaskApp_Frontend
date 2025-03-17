@@ -1,0 +1,148 @@
+/* Establece el fondo para ocupar el 100% de la pantalla */
+.background-image {
+  background-image: url("../../../assets/1.png");
+  background-repeat: no-repeat;
+  background-size: cover; /* Cubre toda la pantalla sin deformarse */
+  background-position: center center; /* Centra la imagen */
+  background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
+  background-color: #2268fe;
+  width: 100vw; /* 100% del ancho de la pantalla */
+  height: 100vh; /* 100% del alto de la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor principal */
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+}
+
+/* Contenedor del formulario */
+.container {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+/* Estilos para el encabezado */
+header {
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Imagen del encabezado */
+.icon {
+  display: block;
+  width: 217px;
+  margin: auto;
+}
+
+/* Contenedor de los inputs */
+.input-field {
+  width: 100%;
+  margin-top: 15px;
+  position: relative;
+}
+
+/* Estilos para los inputs */
+.input {
+  width: 100%; /* Igual de ancho que el botón */
+  height: 45px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  color: #fff;
+  padding: 0 0px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 15px;
+  text-align: center;
+}
+
+.input:hover {
+  box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.4);
+}
+
+/* Botón de envío */
+.submit {
+  width: 100%; /* Mismo ancho que los inputs */
+  height: 45px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  background: #006eff9f !important;
+  color: #fff !important;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit:hover {
+  box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.4);
+}
+
+.submit:disabled {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  color: white;
+}
+
+/* Placeholder blanco */
+::-webkit-input-placeholder {
+  color: #fff;
+}
+
+/* Iconos dentro de los inputs */
+i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 19px;
+  color: #fff;
+  z-index: 1;
+}
+
+/* Icono de visibilidad de contraseña */
+.ieye {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  left: 90%;
+  color: #fff;
+  z-index: 1;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Estilos para la sección final */
+.final {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagen de la sección final */
+.telefonica {
+  width: 160px;
+  margin: auto;
+}
+
+/* Texto centrado */
+.text {
+  display: flex;
+  color: white;
+  justify-content: center;
+  margin: 0;
+}
+.text-danger{
+  color: white;
+}
+

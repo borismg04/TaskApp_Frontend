@@ -1,0 +1,31 @@
+<div class="col-12 row m-0 background-image justify-content-center">
+
+  <div class="box">
+    <form [formGroup]="formLogin" (submit)="login()">
+      <div class="container">
+        <div class="top-header">
+          <!-- <img class="icon" src="../../../assets/leonLogo.png" alt="waiting for image"> -->
+          <header>Login</header>
+        </div>
+        <div class="input-field">
+          <input type="text" class="input" placeholder="Email" formControlName="Email" required>
+        </div>
+        <div class="input-field">
+          <input class="input" #inputPass placeholder="Password" formControlName="Password" required autocomplete="off">
+          <small class="text-danger" *ngIf="formLogin.get('Password')?.errors?.['required']">
+            ⚠️ La contraeña es obligatoria.
+          </small>
+
+        </div>
+        <div class="input-field">
+          <button mat-flat-button type="submit" class="submit" [disabled]="!formLogin.valid">Iniciar Sesión</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="final">
+    <!-- imagen -->
+  </div>
+
+</div>
