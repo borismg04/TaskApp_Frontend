@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpService } from 'src/app/Services/http.service';
+import { LoginModel } from 'src/app/Models/LoginModel';
 
 @Component({
   selector: 'app-login',
@@ -11,22 +13,31 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   formLogin: FormGroup;
   constructor(
-    //private parameterServis: ParameterServicesService,
-    //private resetService: ResetServiceService,
+    private httpService: HttpService,
     private formGroup: FormBuilder,
     public dialog: MatDialog,
     private router: Router,
-  ){
+  ) {
     this.formLogin = this.formGroup.group({
       Email: [null, Validators.required],
-      Password: [null, [Validators.required, Validators.pattern(/^\d{1,2}$/)]],
-    })
+      Password: [null, [Validators.required]],
+    });
   }
 
-  login(){
-    if(this.formLogin.valid){
-      console.log(this.formLogin.value);
-      this.router.navigate(['/home']);
+  Login() {
+    if (this.formLogin.valid) {
+      const loginModel: LoginModel = this.formLogin.value;
+      this.httpService.Login(loginModel).subscribe(
+        (data) => {
+          if (data.statusCode == 200) {
+            this.router.navigate(['/Home']);
+            localStorage.setItem('isAuthenticated', 'true');
+          }
+        },
+        (error) => {
+          console.log('Error del backend al iongresar :', error);
+        }
+      );
     }
   }
 }
