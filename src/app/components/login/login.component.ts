@@ -40,7 +40,7 @@ export class LoginComponent {
       params2.name = 'pass';
       params2.value = this.parameterService.password;
 
-      this.httpService.Login1([params,params2]).subscribe(
+      this.httpService.Login([params,params2]).subscribe(
         (x) => {
           if (x.statusCode == 200) {
             this.router.navigate(['/Home']);

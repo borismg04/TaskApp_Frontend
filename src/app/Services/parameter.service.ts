@@ -4,10 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ParameterService {
-
+  //User
   email: string = '';
   password: string = '';
   name: string = '';
+
+  //Task
+  task: any = [];
 
   constructor() { }
 

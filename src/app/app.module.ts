@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './components/menu/menu.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MenuComponent } from './components/menu/menu.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    TasksComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,7 @@ import { MenuComponent } from './components/menu/menu.component';
     AppRoutingModule,
     RouterModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
