@@ -11,6 +11,7 @@ import { ParameterService } from 'src/app/Services/parameter.service';
 export class TasksComponent {
   filterValue: string = '';
   tasks: any = [];
+  count: any = [];
   constructor(
     public httpService: HttpService,
     public parameterService: ParameterService,
@@ -25,6 +26,8 @@ export class TasksComponent {
       (response) => {
         console.log('Respuesta del backend:', response);
         this.tasks = response.result.tasks;
+        this.count = response.result.count;
+        console.log("this.count: ", this.count);
         console.log('Tareas cargadas:', this.tasks);
       },
       (error) => {

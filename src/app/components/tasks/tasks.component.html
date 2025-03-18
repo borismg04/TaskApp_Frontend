@@ -13,12 +13,15 @@
           <div class="col-12 row m-1 p-0 justify-content-end back styleCard">
             <div class="col-4 row m-0 p-1 align-items-center justify-content-start">
               <span class="col-1 material-icons text-success">timer</span>
+              <span class="col-3 justify-content-end" style="color: black;">{{ this.count.baja }}</span>
             </div>
             <div class="col-4 row m-0 p-1 align-items-center justify-content-center">
               <span class="col-1 material-icons text-warning">timer</span>
+              <span class="col-3 justify-content-end" style="color: black;">{{ this.count.media }}</span>
             </div>
             <div class="col-4 row m-0 p-1 justify-content-center align-items-center">
               <span class="col-1 material-icons text-danger">timer</span>
+              <span class="col-3 justify-content-end" style="color: black;">{{ this.count.alta }}</span>
             </div>
           </div>
         </div>
@@ -38,7 +41,13 @@
                 <p>{{ task.description }}</p>
               </mat-card-content>
               <mat-card-actions class="d-flex justify-content-between px-3 pb-2">
-                <span class="priority badge bg-info text-dark">Prioridad: {{ task.priority }}</span>
+                <span class="priority badge text-dark" [ngClass]="{
+                  'bg-danger': task.priority === 'Alta',
+                  'bg-warning': task.priority === 'Media',
+                  'bg-success': task.priority === 'Baja'
+                }">
+                  Prioridad: {{ task.priority }}
+                </span>
                 <span class="state badge bg-secondary">Estado: {{ task.state }}</span>
               </mat-card-actions>
               <div class="px-3 pb-3 text-end">
