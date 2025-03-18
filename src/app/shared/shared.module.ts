@@ -14,7 +14,6 @@ import {MatCardModule} from '@angular/material/card';
 //componentes
 import { SpinnerComponent } from './spinner/spinner.component';
 
-
 @NgModule({
   declarations: [
     SpinnerComponent,
