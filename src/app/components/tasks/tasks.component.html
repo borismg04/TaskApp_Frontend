@@ -2,7 +2,6 @@
   <div class="col-12 row m-0 p-3">
     <div class="col-12 row m-0 p-3" style="background-color: #2b343b; border-radius: 20px;">
 
-      <!-- Sección de Título y Contadores -->
       <div class="col-6 row m-0 p-0 back">
         <div class="col-2 row m-0 justify-content-start align-items-center">
           <span class="px-3 txt align-items-center" style="color: white;">Tareas</span>
@@ -27,15 +26,37 @@
         </div>
       </div>
 
-      <!-- Tarjetas de tareas -->
+      <div class="col-6 row m-0 p-0 justify-content-end back">
+
+        <div class="col-9 row m-0 p-1 back">
+          <mat-form-field class="stylesForm">
+            <mat-icon matPrefix class="icon-search ">search</mat-icon>
+            <input matInput [(ngModel)]="filterValue" (ngModelChange)="applyFilter(filterValue)" placeholder="Buscar">
+          </mat-form-field>
+        </div>
+
+        <!-- <div class="col-2 row m-0 p-0  justify-content-end align-items-center">
+          <button mat-mini-fab class="buttonRefresh mx-4" (click)="getCasosGestion()"
+            [disabled]="parametersService.ContingencyInGestion != null">
+            <mat-icon class="material-icons">
+              refresh
+            </mat-icon>
+          </button>
+        </div> -->
+      </div>
+
       <div class="col-12 row m-0 mt-4">
         <ng-container *ngFor="let task of this.tasks">
           <div class="col-12 col-md-6 col-lg-4 p-2">
             <mat-card class="example-card h-100" appearance="outlined">
               <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
+                <div mat-card-avatar class="example-header-image col-12"></div>
                 <mat-card-title>{{ task.nameTask }}</mat-card-title>
                 <mat-card-subtitle>{{ task.fecha | date: 'short' }}</mat-card-subtitle>
+                <div class="icon-container">
+                  <span class="material-icons" style="color: #0197fa; cursor: pointer;">edit</span>
+                  <span class="material-icons" style="color: #ff0000; cursor: pointer;">delete</span>
+                </div>
               </mat-card-header>
               <mat-card-content>
                 <p>{{ task.description }}</p>

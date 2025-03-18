@@ -9,9 +9,11 @@ import { ParameterService } from 'src/app/Services/parameter.service';
 })
 
 export class TasksComponent {
+  tasks: any[] = [];
+  allTasks: any[] = [];
   filterValue: string = '';
-  tasks: any = [];
-  count: any = [];
+  count: any;
+
   constructor(
     public httpService: HttpService,
     public parameterService: ParameterService,
@@ -25,7 +27,8 @@ export class TasksComponent {
     this.httpService.GetTasks().subscribe(
       (response) => {
         console.log('Respuesta del backend:', response);
-        this.tasks = response.result.tasks;
+        this.allTasks = response.result.tasks; // guardamos la copia original
+        this.tasks = [...this.allTasks]; // mostramos todos inicialmente
         this.count = response.result.count;
         console.log("this.count: ", this.count);
         console.log('Tareas cargadas:', this.tasks);
@@ -37,7 +40,14 @@ export class TasksComponent {
   }
 
   applyFilter(filterValue: string) {
-    //this.tableGestionBack.filter = filterValue.trim().toLowerCase();
-    console.log("filterValue: ", filterValue);
+    const filter = filterValue.trim().toLowerCase();
+    this.tasks = this.allTasks.filter(task =>
+      task.nameTask.toLowerCase().includes(filter) ||
+      task.description.toLowerCase().includes(filter) ||
+      task.priority.toLowerCase().includes(filter) ||
+      task.state.toLowerCase().includes(filter) ||
+      task.userGestion.toLowerCase().includes(filter)
+    );
+    console.log("Filtrado:", this.tasks);
   }
 }

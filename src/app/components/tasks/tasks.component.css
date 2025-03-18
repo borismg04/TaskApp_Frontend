@@ -126,3 +126,19 @@ tr.example-detail-row {
 ::ng-deep .btn-link {
   display: none;
 }
+
+
+.icon-container {
+  margin-left: auto; /* Empuja el contenedor a la derecha */
+  display: flex; /* Para alinear los iconos horizontalmente */
+  align-items: center; /* Para centrar verticalmente los iconos */
+}
+
+.mat-card-header {
+  display: flex; /* Habilita flexbox para alinear los elementos */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+.mat-card-title, .mat-card-subtitle {
+  flex-grow: 1; /* Permite que el título y subtítulo ocupen el espacio disponible */
+}
