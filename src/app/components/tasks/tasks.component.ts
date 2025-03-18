@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { HttpService } from 'src/app/Services/http.service';
 import { ParameterService } from 'src/app/Services/parameter.service';
+import { CreateTasksComponent } from './create-tasks/create-tasks.component';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateTasksComponent } from './update-tasks/update-tasks.component';
 
 @Component({
   selector: 'app-tasks',
@@ -13,8 +16,10 @@ export class TasksComponent {
   allTasks: any[] = [];
   filterValue: string = '';
   count: any;
+  smallSize: boolean = false;
 
   constructor(
+    public dialog : MatDialog,
     public httpService: HttpService,
     public parameterService: ParameterService,
   ) { }
@@ -45,6 +50,28 @@ export class TasksComponent {
       task.state.toLowerCase().includes(filter) ||
       task.userGestion.toLowerCase().includes(filter)
     );
-    console.log("Filtrado:", this.tasks);
+  }
+
+  ModalCreateTask() {
+    let width = this.smallSize ? "90%" : "40%";
+    this.dialog.open(CreateTasksComponent, {
+      width: width,
+      data: {
+        httpService: this.httpService,
+        parametersService: this.parameterService,
+      }
+    });
+  }
+
+  ModalUpdateTask(task: any) {
+    let width = this.smallSize ? "90%" : "40%";
+    this.dialog.open(UpdateTasksComponent, {
+      width: width,
+      data: {
+        httpService: this.httpService,
+        parametersService: this.parameterService,
+        task: task,
+      }
+    });
   }
 }

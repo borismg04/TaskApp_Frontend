@@ -1,3 +1,7 @@
+<div class="input-field p-3">
+  <button mat-flat-button type="submit" class="submit" (click)="ModalCreateTask()">Crear Tarea</button>
+</div>
+
 <div class="col-12 row m-0 p-0">
   <div class="col-12 row m-0 p-3">
     <div class="col-12 row m-0 p-3" style="background-color: #2b343b; border-radius: 20px;">
@@ -54,7 +58,7 @@
                 <mat-card-title>{{ task.nameTask }}</mat-card-title>
                 <mat-card-subtitle>{{ task.fecha | date: 'short' }}</mat-card-subtitle>
                 <div class="icon-container">
-                  <span class="material-icons" style="color: #0197fa; cursor: pointer;">edit</span>
+                  <span class="material-icons" style="color: #0197fa; cursor: pointer;" (click)="ModalUpdateTask(tasks)">edit</span>
                   <span class="material-icons" style="color: #ff0000; cursor: pointer;">delete</span>
                 </div>
               </mat-card-header>

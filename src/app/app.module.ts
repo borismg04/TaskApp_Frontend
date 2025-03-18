@@ -10,6 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './components/menu/menu.component';
 import { TasksComponent } from './components/tasks/tasks.component';
+import { CreateTasksComponent } from './components/tasks/create-tasks/create-tasks.component';
+import { UpdateTasksComponent } from './components/tasks/update-tasks/update-tasks.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { TasksComponent } from './components/tasks/tasks.component';
     HomeComponent,
     MenuComponent,
     TasksComponent,
+    CreateTasksComponent,
+    UpdateTasksComponent,
   ],
   imports: [
     BrowserModule,
