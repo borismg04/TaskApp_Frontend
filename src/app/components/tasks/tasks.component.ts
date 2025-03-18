@@ -26,12 +26,9 @@ export class TasksComponent {
   GetTask() {
     this.httpService.GetTasks().subscribe(
       (response) => {
-        console.log('Respuesta del backend:', response);
-        this.allTasks = response.result.tasks; // guardamos la copia original
-        this.tasks = [...this.allTasks]; // mostramos todos inicialmente
+        this.allTasks = response.result.tasks;
+        this.tasks = [...this.allTasks];
         this.count = response.result.count;
-        console.log("this.count: ", this.count);
-        console.log('Tareas cargadas:', this.tasks);
       },
       (error) => {
         console.error('Error al obtener las tareas:', error);
