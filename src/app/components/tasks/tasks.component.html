@@ -28,21 +28,21 @@
 
       <div class="col-6 row m-0 p-0 justify-content-end back">
 
-        <div class="col-9 row m-0 p-1 back">
+        <div class="col-9 row m-0 p-1 search-bar-container">
           <mat-form-field class="stylesForm">
             <mat-icon matPrefix class="icon-search ">search</mat-icon>
             <input matInput [(ngModel)]="filterValue" (ngModelChange)="applyFilter(filterValue)" placeholder="Buscar">
           </mat-form-field>
         </div>
 
-        <!-- <div class="col-2 row m-0 p-0  justify-content-end align-items-center">
-          <button mat-mini-fab class="buttonRefresh mx-4" (click)="getCasosGestion()"
-            [disabled]="parametersService.ContingencyInGestion != null">
-            <mat-icon class="material-icons">
-              refresh
-            </mat-icon>
-          </button>
-        </div> -->
+        <div class="col-2 m-0 p-1 d-flex justify-content-center align-items-center">
+          <div class="example-button-row">
+            <button mat-flat-button class="buttonRefresh" (click)="GetTask()">
+              <mat-icon>refresh</mat-icon>
+            </button>
+          </div>
+        </div>
+
       </div>
 
       <div class="col-12 row m-0 mt-4">

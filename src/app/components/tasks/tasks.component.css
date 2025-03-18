@@ -54,9 +54,20 @@
 }
 
 .buttonRefresh {
-  color: #fff !important;
-  background: #0070ff !important;
+  width: 50px;
+  height: 50px;
+  min-width: 0;
+  line-height: normal;
   border-radius: 50%;
+  background: #0070ff;
+  border-color: none;
+}
+
+.buttonRefresh mat-icon {
+  font-size: 28px;
+  color: #fff;
+  justify-content: center;
+  display: inline-flex;
 }
 
 .buttonRefresh:disabled {
@@ -129,16 +140,45 @@ tr.example-detail-row {
 
 
 .icon-container {
-  margin-left: auto; /* Empuja el contenedor a la derecha */
-  display: flex; /* Para alinear los iconos horizontalmente */
-  align-items: center; /* Para centrar verticalmente los iconos */
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 .mat-card-header {
-  display: flex; /* Habilita flexbox para alinear los elementos */
-  align-items: center; /* Centra verticalmente los elementos */
+  display: flex;
+  align-items: center;
 }
 
 .mat-card-title, .mat-card-subtitle {
-  flex-grow: 1; /* Permite que el título y subtítulo ocupen el espacio disponible */
+  flex-grow: 1;
+}
+
+.search-bar-container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.search-bar-container mat-form-field {
+  width: 100%;
+}
+
+.search-bar-container mat-form-field input {
+  padding-left: 5px;
+  color: black;
+  border: none; /* Elimina el borde */
+}
+
+.search-bar-container mat-form-field ::placeholder {
+  color: black;
+}
+
+.search-bar-container mat-icon {
+  color: black;
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #ffff !important;
 }
