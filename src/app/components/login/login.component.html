@@ -1,5 +1,4 @@
 <div class="col-12 row m-0 background-image justify-content-center">
-
   <div class="box">
     <form [formGroup]="formLogin" (submit)="Login()">
       <div class="container">
@@ -11,10 +10,10 @@
           <input type="text" class="input" placeholder="Email" formControlName="Email" required>
         </div>
         <div class="input-field">
-          <input class="input" #inputPass placeholder="Password" formControlName="Password" required autocomplete="off">
-          <small class="text-danger" *ngIf="formLogin.get('Password')?.errors?.['required']">
-            ⚠️ La contraeña es obligatoria.
-          </small>
+          <input [type]="hidePassword ? 'password' : 'text'" class="input" #inputPass placeholder="Contraseña" formControlName="Password" required autocomplete="off">
+          <i class="bx bx-lock-alt"></i>
+          <button type="button" class="material-icons btnIcon ieye" *ngIf="hidePassword" (click)="togglePasswordVisibility()">visibility</button>
+          <button type="button" class="material-icons btnIcon ieye" *ngIf="!hidePassword" (click)="togglePasswordVisibility()">visibility_off</button>
 
         </div>
         <div class="input-field">
@@ -27,5 +26,4 @@
   <div class="final">
     <!-- imagen -->
   </div>
-
 </div>

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HttpService } from 'src/app/Services/http.service';
 import { ParameterService } from '../../Services/parameter.service';
 import { ParamsModel } from '../../Models/ParamsModel';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ import { ParamsModel } from '../../Models/ParamsModel';
 })
 export class LoginComponent {
   formLogin: FormGroup;
+  hidePassword: boolean = true;
 
   constructor(
     private httpService: HttpService,
@@ -25,6 +27,10 @@ export class LoginComponent {
       Email: [null, Validators.required],
       Password: [null, [Validators.required]],
     });
+  }
+
+  togglePasswordVisibility() {
+    this.hidePassword = !this.hidePassword;
   }
 
   Login() {
@@ -40,16 +46,29 @@ export class LoginComponent {
       params2.name = 'pass';
       params2.value = this.parameterService.password;
 
-      this.httpService.Login([params,params2]).subscribe(
+      this.httpService.Login([params, params2]).subscribe(
         (x) => {
           if (x.statusCode == 200) {
             this.router.navigate(['/Home']);
             localStorage.setItem('isAuthenticated', 'true');
             this.parameterService.name = x.result.nombre;
+          } else {
+            Swal.fire({
+              title: 'Error',
+              text: 'Contraseña errónea',
+              icon: 'error',
+              confirmButtonText: 'Ok'
+            });
           }
         },
         (error) => {
-          console.log('Error del backend al iongresar :', error);
+          console.log('Error del backend al ingresar:', error);
+          Swal.fire({
+            title: 'Error',
+            text: 'Contraseña errónea',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          });
         }
       );
     }
