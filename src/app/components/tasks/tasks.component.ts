@@ -4,6 +4,7 @@ import { ParameterService } from 'src/app/Services/parameter.service';
 import { CreateTasksComponent } from './create-tasks/create-tasks.component';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateTasksComponent } from './update-tasks/update-tasks.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tasks',
@@ -56,6 +57,42 @@ export class TasksComponent {
       task.state.toLowerCase().includes(filter) ||
       task.userGestion.toLowerCase().includes(filter)
     );
+  }
+
+  DeleteTask(id: any) {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción eliminará la tarea de forma permanente.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.httpService.DeleteTask(id).subscribe(
+          (x : any ) => {
+            if (x.statusCode == 200) {
+              Swal.fire(
+                'Eliminado',
+                'La tarea ha sido eliminada exitosamente.',
+                'success'
+              );
+              this.GetTask();
+            }
+          },
+          (error) => {
+            console.error('Error al eliminar la tarea:', error);
+            Swal.fire(
+              'Error',
+              'Hubo un problema al eliminar la tarea.',
+              'error'
+            );
+          }
+        );
+      }
+    });
   }
 
   ModalCreateTask() {

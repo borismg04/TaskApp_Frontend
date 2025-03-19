@@ -15,6 +15,7 @@ export class HttpService {
   private urlGetTasks = 'Task/GetTasks';
   private urlCreateTask = 'Task/CreateTask';
   private urlUpdateTask = 'Task/UpdateTask';
+  private urlDeleteTask = 'Task/DeleteTask';
 
   constructor(
     private http: HttpClient,
@@ -83,6 +84,14 @@ export class HttpService {
     return this.http.post<any>(
       this.GetUrl(this.urlUpdateTask),
       model,
+      this.httpOptions
+    );
+  }
+
+  DeleteTask (id : any): Observable<any> {
+    this.setHeader();
+    return this.http.delete<any>(
+      this.GetUrl(this.urlDeleteTask + '?id=' + id),
       this.httpOptions
     );
   }

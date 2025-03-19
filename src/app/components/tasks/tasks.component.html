@@ -59,7 +59,7 @@
                 <mat-card-subtitle>{{ task.fecha | date: 'short' }}</mat-card-subtitle>
                 <div class="icon-container">
                   <span class="material-icons" style="color: #0197fa; cursor: pointer;" (click)="ModalUpdateTask(task)">edit</span>
-                  <span class="material-icons" style="color: #ff0000; cursor: pointer;">delete</span>
+                  <span class="material-icons" style="color: #ff0000; cursor: pointer;"(click)="DeleteTask(task.id)">delete</span>
                 </div>
               </mat-card-header>
               <mat-card-content>

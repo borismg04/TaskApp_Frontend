@@ -81,7 +81,7 @@ export class CreateTasksComponent {
         });
       }
     );
-}
+  }
 
   close() {
     this.dialogRef.close();
