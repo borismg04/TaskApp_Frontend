@@ -1,1 +1,55 @@
-<p>create-tasks works!</p>
+<mat-dialog-content>
+  <div>
+    <h2 class="w-100 text-center m-0 py-3">Creación de Contacto Manual</h2>
+    <form [formGroup]="formGroup" (ngSubmit)="CreateTask()">
+      <div class="form py-1">
+        <mat-form-field class="stylesForm">
+          <input matInput placeholder="Nombre de la Tarea" formControlName="nameTask" required>
+          <mat-error>
+            <span *ngIf="formGroup.get('nameTask')?.hasError('required') && formGroup.get('nameTask')?.touched">
+              El nombre de la tarea es requerido
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form py-1">
+        <mat-form-field class="stylesForm">
+          <input matInput placeholder="Descripción de la Tarea" formControlName="description" required>
+          <mat-error>
+            <span
+              *ngIf="formGroup.get('description')?.hasError('required') && formGroup.get('description')?.touched">
+              La descripción de la tarea es requerida
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form py-1">
+        <mat-form-field class="stylesForm">
+          <mat-select formControlName="priority" placeholder="Seleccione la Prioridad" required>
+            <mat-option *ngFor="let x of priority" [value]="x">
+              {{x}}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix class="colorIcon">sync_problem</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div class="form py-1">
+        <mat-form-field class="stylesForm">
+          <mat-select formControlName="state" placeholder="Seleccione el Estado" required>
+            <mat-option *ngFor="let x of state" [value]="x">
+              {{x}}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix class="colorIcon">sync_problem</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div class="form mb-4 row m-0 justify-content-center">
+        <button mat-raised-button color="primary" type="submit" class="submit" [disabled]="formGroup.invalid">Crear Tarea</button>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>

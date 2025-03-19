@@ -13,6 +13,11 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { CreateTasksComponent } from './components/tasks/create-tasks/create-tasks.component';
 import { UpdateTasksComponent } from './components/tasks/update-tasks/update-tasks.component';
 
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +36,10 @@ import { UpdateTasksComponent } from './components/tasks/update-tasks/update-tas
     RouterModule,
     SharedModule,
     HttpClientModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

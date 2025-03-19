@@ -30,13 +30,18 @@ export class TasksComponent {
 
   GetTask() {
     this.httpService.GetTasks().subscribe(
-      (response) => {
-        this.allTasks = response.result.tasks;
-        this.tasks = [...this.allTasks];
-        this.count = response.result.count;
+      (response: any) => {
+        if (response && response.result) {
+          this.tasks = response.result.tasks || [];
+          this.count = response.result.count;
+        } else {
+          console.warn('No se encontraron tareas en la respuesta del servidor.');
+          this.tasks = []; // Asigna un array vacío si no hay resultado
+        }
       },
       (error) => {
         console.error('Error al obtener las tareas:', error);
+        this.tasks = []; // Asigna un array vacío en caso de error
       }
     );
   }

@@ -13,6 +13,7 @@ export class HttpService {
 
   private urlLogin = 'Login/login';
   private urlGetTasks = 'Task/GetTasks';
+  private urlCreateTask = 'Task/CreateTask';
 
   constructor(
     private http: HttpClient,
@@ -63,6 +64,15 @@ export class HttpService {
     this.setHeader();
     return this.http.get<any>(
       this.GetUrl(this.urlGetTasks),
+      this.httpOptions
+    );
+  }
+
+  CreateTask (model : any): Observable<any> {
+    this.setHeader();
+    return this.http.post<any>(
+      this.GetUrl(this.urlCreateTask),
+      model,
       this.httpOptions
     );
   }

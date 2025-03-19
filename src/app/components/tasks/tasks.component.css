@@ -199,3 +199,7 @@ tr.example-detail-row {
   margin-top: 15px;
   position: relative;
 }
+
+mat-card-subtitle {
+  color: black !important;
+}

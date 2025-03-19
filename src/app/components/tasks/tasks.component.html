@@ -50,15 +50,15 @@
       </div>
 
       <div class="col-12 row m-0 mt-4">
-        <ng-container *ngFor="let task of this.tasks">
-          <div class="col-12 col-md-6 col-lg-4 p-2">
+        <ng-container *ngIf="tasks && tasks.length > 0; else noTasks">
+          <div *ngFor="let task of tasks" class="col-12 col-md-6 col-lg-4 p-2">
             <mat-card class="example-card h-100" appearance="outlined">
               <mat-card-header>
                 <div mat-card-avatar class="example-header-image col-12"></div>
                 <mat-card-title>{{ task.nameTask }}</mat-card-title>
                 <mat-card-subtitle>{{ task.fecha | date: 'short' }}</mat-card-subtitle>
                 <div class="icon-container">
-                  <span class="material-icons" style="color: #0197fa; cursor: pointer;" (click)="ModalUpdateTask(tasks)">edit</span>
+                  <span class="material-icons" style="color: #0197fa; cursor: pointer;" (click)="ModalUpdateTask(task)">edit</span>
                   <span class="material-icons" style="color: #ff0000; cursor: pointer;">delete</span>
                 </div>
               </mat-card-header>
@@ -81,6 +81,9 @@
             </mat-card>
           </div>
         </ng-container>
+        <ng-template #noTasks>
+          <p class="text-center w-100" style="color: white;">No hay tareas disponibles.</p>
+        </ng-template>
       </div>
 
     </div>
