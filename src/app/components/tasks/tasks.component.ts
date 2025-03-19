@@ -17,9 +17,10 @@ export class TasksComponent {
   filterValue: string = '';
   count: any;
   smallSize: boolean = false;
+  id: any;
 
   constructor(
-    public dialog : MatDialog,
+    public dialog: MatDialog,
     public httpService: HttpService,
     public parameterService: ParameterService,
   ) { }
@@ -33,15 +34,15 @@ export class TasksComponent {
       (response: any) => {
         if (response && response.result) {
           this.tasks = response.result.tasks || [];
+          this.allTasks = [...this.tasks];
           this.count = response.result.count;
         } else {
-          console.warn('No se encontraron tareas en la respuesta del servidor.');
-          this.tasks = []; // Asigna un array vacío si no hay resultado
+          this.tasks = [];
         }
       },
       (error) => {
         console.error('Error al obtener las tareas:', error);
-        this.tasks = []; // Asigna un array vacío en caso de error
+        this.tasks = [];
       }
     );
   }
@@ -59,24 +60,28 @@ export class TasksComponent {
 
   ModalCreateTask() {
     let width = this.smallSize ? "90%" : "40%";
-    this.dialog.open(CreateTasksComponent, {
+    const dialogRef = this.dialog.open(CreateTasksComponent, {
       width: width,
       data: {
         httpService: this.httpService,
         parametersService: this.parameterService,
       }
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.GetTask();
+    });
   }
 
   ModalUpdateTask(task: any) {
     let width = this.smallSize ? "90%" : "40%";
-    this.dialog.open(UpdateTasksComponent, {
+    const dialogRef = this.dialog.open(UpdateTasksComponent, {
       width: width,
-      data: {
-        httpService: this.httpService,
-        parametersService: this.parameterService,
-        task: task,
-      }
+      data: task
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.GetTask();
     });
   }
 }

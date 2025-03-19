@@ -35,65 +35,6 @@ export class CreateTasksComponent {
     });
   }
 
-  // CreateTask() {
-  //   let model = new TaskModel();
-  //   const task = this.formGroup.get('nameTask')!.value;
-  //   const description = this.formGroup.get('description')!.value;
-  //   const userGestion = this.parametersService.name;
-  //   const priority = this.formGroup.get('priority')!.value;
-  //   const state = this.formGroup.get('state')!.value;
-
-  //   model.nameTask = task;
-  //   model.description = description;
-  //   model.priority = priority;
-  //   model.state = state;
-  //   model.userGestion = userGestion;
-
-  //   // const model: TaskModel = {
-  //   //   nameTask: 'tarea 1',
-  //   //   description: 'esto es una tarea',
-  //   //   userGestion: this.parametersService.name, // Asegúrate de que esto devuelve "borismg"
-  //   //   priority: 'Alta',
-  //   //   state: 'Pendiente'
-  //   // };
-
-
-  //   console.log('Modelo a enviar:', model); // Registro de depuración
-
-  //   this.httpService.CreateTask(model).subscribe(
-  //     (x) => {
-  //       console.log('Respuesta del servidor:', x); // Registro de depuración
-  //       if (x.statusCode == 200) {
-  //         Swal.fire({
-  //           icon: 'success',
-  //           title: 'Tarea creada',
-  //           showConfirmButton: false,
-  //           timer: 1500
-  //         });
-  //         this.dialogRef.close();
-  //       } else {
-  //         Swal.fire({
-  //           icon: 'error',
-  //           title: 'Error al crear la tarea',
-  //           showConfirmButton: false,
-  //           timer: 1500
-  //         });
-  //         this.dialogRef.close();
-  //       }
-  //     },
-  //     (err) => {
-  //       console.error('Error en la llamada HTTP:', err); // Registro de depuración de errores
-  //       Swal.fire({
-  //         icon: 'error',
-  //         title: 'Error en la llamada HTTP',
-  //         text: err.message || 'Error desconocido',
-  //         showConfirmButton: false,
-  //         timer: 3000
-  //       });
-  //     }
-  //   );
-  // }
-
   CreateTask() {
     let model = new TaskModel();
     const task = this.formGroup.get('nameTask')!.value;
@@ -102,19 +43,15 @@ export class CreateTasksComponent {
     const priority = this.formGroup.get('priority')!.value;
     const state = this.formGroup.get('state')!.value;
 
-    console.log('Valores del formulario:', { task, description, priority, state, userGestion });
-
     model.nameTask = task;
     model.description = description;
     model.priority = priority;
     model.state = state;
     model.userGestion = userGestion;
 
-    console.log('Modelo a enviar:', model);
 
     this.httpService.CreateTask(model).subscribe(
       (x) => {
-        console.log('Respuesta del servidor:', x);
         if (x.statusCode == 200) {
           Swal.fire({
             icon: 'success',

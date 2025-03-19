@@ -1,5 +1,6 @@
 export class TaskModel {
-  nameTask	: string | undefined;
+  id: number | undefined;
+  nameTask: string | undefined;
   description: string | undefined;
   userGestion: string | undefined;
   priority: string | undefined;
