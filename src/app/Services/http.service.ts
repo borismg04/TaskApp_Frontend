@@ -24,7 +24,8 @@ export class HttpService {
   private urlGetUsers = 'Users/GetUsuarios';
   private urlRegisterUsers = 'Auth/Register';
   private urlUpdateUsers = 'Users/UpdateUser';
-  private urlDeleteUsers = 'Users/DeleteUser'
+  private urlDeleteUsers = 'Users/DeleteUser';
+  private urlGetTaskAdmin = 'Task/GetTaskAdmin';
 
   constructor(
     private http: HttpClient,
@@ -135,6 +136,14 @@ export class HttpService {
     this.setHeader();
     return this.http.delete<any>(
       this.GetUrl(this.urlDeleteUsers + '?id=' + id),
+      this.httpOptions
+    );
+  }
+
+  GetTaskAdmin(): Observable<any> {
+    this.setHeader();
+    return this.http.get<any>(
+      this.GetUrl(this.urlGetTaskAdmin),
       this.httpOptions
     );
   }

@@ -7,6 +7,7 @@ import { ParameterService } from 'src/app/Services/parameter.service';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import Swal from 'sweetalert2';
+import { TaskModel } from 'src/app/Models/TaskModel';
 
 @Component({
   selector: 'app-administrator',
@@ -21,6 +22,10 @@ export class AdministratorComponent {
   infoUsers: any = [];
   smallSize: boolean = false;
 
+  tableInfoTasks = new MatTableDataSource<TaskModel>();
+  ColumnsUnfoTasks: string[] = ['id', 'nameTask', 'description', 'priority', 'state', 'userGestion'];
+  showTableInfoTasks: boolean = false;
+
   constructor(
     public dialog: MatDialog,
     public httpService: HttpService,
@@ -29,6 +34,7 @@ export class AdministratorComponent {
 
   ngOnInit(): void {
     this.GetUsers();
+    this.GetAllTasks();
   }
 
   GetUsers() {
@@ -46,6 +52,21 @@ export class AdministratorComponent {
       (error) => {
         console.error('Error al obtener los usuarios:', error);
         this.parameterService.users = [];
+      }
+    );
+  }
+
+  GetAllTasks() {
+    this.httpService.GetTaskAdmin().subscribe(
+      (x: any) => {
+        if (x.statusCode == 200) {
+          this.parameterService.allTask = x.result.tasks || [];
+          this.tableInfoTasks = new MatTableDataSource(x.result);
+          this.showTableInfoTasks = true;
+        } else {
+          this.parameterService.allTask = [];
+          this.showTableInfoTasks = false;
+        }
       }
     );
   }

@@ -15,6 +15,7 @@ export class ParameterService {
 
   //Task
   task: any = [];
+  allTask: any = [];
 
   constructor() { }
 

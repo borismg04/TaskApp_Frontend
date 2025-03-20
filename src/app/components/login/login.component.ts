@@ -53,7 +53,6 @@ export class LoginComponent {
             localStorage.setItem('isAuthenticated', 'true');
             this.parameterService.name = x.result.nombre;
             this.parameterService.profile = x.result.profile;
-            console.log("this.parameterService.profile: ", this.parameterService.profile);
           } else {
             Swal.fire({
               title: 'Error',
