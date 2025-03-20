@@ -24,10 +24,11 @@ export class HttpService {
   private urlGetUsers = 'Users/GetUsuarios';
   private urlRegisterUsers = 'Auth/Register';
   private urlUpdateUsers = 'Users/UpdateUser';
+  private urlDeleteUsers = 'Users/DeleteUser'
 
   constructor(
     private http: HttpClient,
-    private parameterService : ParameterService
+    private parameterService: ParameterService
   ) { }
 
   GetUrl(url: string): string {
@@ -78,7 +79,7 @@ export class HttpService {
     );
   }
 
-  CreateTask (model : any): Observable<any> {
+  CreateTask(model: any): Observable<any> {
     this.setHeader();
     return this.http.post<any>(
       this.GetUrl(this.urlCreateTask),
@@ -87,7 +88,7 @@ export class HttpService {
     );
   }
 
-  UpdateTask (model : any): Observable<any> {
+  UpdateTask(model: any): Observable<any> {
     this.setHeader();
     return this.http.post<any>(
       this.GetUrl(this.urlUpdateTask),
@@ -96,7 +97,7 @@ export class HttpService {
     );
   }
 
-  DeleteTask (id : any): Observable<any> {
+  DeleteTask(id: any): Observable<any> {
     this.setHeader();
     return this.http.delete<any>(
       this.GetUrl(this.urlDeleteTask + '?id=' + id),
@@ -126,6 +127,14 @@ export class HttpService {
     return this.http.post<any>(
       this.GetUrl(this.urlUpdateUsers),
       model,
+      this.httpOptions
+    );
+  }
+
+  DeleteUser(id: any): Observable<any> {
+    this.setHeader();
+    return this.http.delete<any>(
+      this.GetUrl(this.urlDeleteUsers + '?id=' + id),
       this.httpOptions
     );
   }

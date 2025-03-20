@@ -5,6 +5,8 @@ import { UserModel } from 'src/app/Models/UserModel';
 import { HttpService } from 'src/app/Services/http.service';
 import { ParameterService } from 'src/app/Services/parameter.service';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-administrator',
@@ -23,7 +25,6 @@ export class AdministratorComponent {
     public dialog: MatDialog,
     public httpService: HttpService,
     public parameterService: ParameterService,
-
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +52,51 @@ export class AdministratorComponent {
     );
   }
 
+  DeleteUser(id: any) {
+    Swal.fire({
+      title: '¿Estás seguro de eliminar este usuario?',
+      text: 'No podrás recuperar la información',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.httpService.DeleteUser(id).subscribe(
+          (x) => {
+            if (x.statusCode == 200) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Usuario eliminado',
+                showConfirmButton: false,
+                timer: 1500
+              });
+              this.GetUsers();
+            } else {
+              Swal.fire({
+                title: 'Error',
+                text: 'Error deleting user',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+              });
+            }
+          },
+          (error) => {
+            console.error('Error deleting user:', error);
+            Swal.fire({
+              title: 'Error',
+              text: 'Error deleting user',
+              icon: 'error',
+              confirmButtonText: 'Ok'
+            });
+          }
+        );
+      }
+    });
+  }
+
   ModalRegisterUser() {
     let width = this.smallSize ? "90%" : "40%";
     const dialogRef = this.dialog.open(RegisterUserComponent, {
@@ -65,15 +111,16 @@ export class AdministratorComponent {
     });
   }
 
-  ModalUpdateUser() {
-    console.log("Update");
-  }
+  ModalUpdateUser(userUpd: any) {
+    console.log('Usuario seleccionado para editar:', userUpd);
 
-  DeleteUser() {
-    console.log("DeleteUser");
-  }
-
-  RegisterUser() {
-    console.log("RegisterUser");
+    let width = this.smallSize ? "90%" : "40%";
+    const dialogRef = this.dialog.open(UpdateUserComponent, {
+      width: width,
+      data: userUpd
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.GetUsers();
+    });
   }
 }

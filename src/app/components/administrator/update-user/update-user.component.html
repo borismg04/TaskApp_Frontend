@@ -1,1 +1,44 @@
-<p>update-user works!</p>
+<mat-dialog-content>
+  <div>
+    <h2 class="w-100 text-center m-0 py-3">Actualizar Usuario</h2>
+    <form [formGroup]="formGroup" (ngSubmit)="UpdateUser()">
+      <div class="form py-1">
+        <mat-form-field class="stylesForm">
+          <input matInput placeholder="Nombre del Usuario" formControlName="name" required>
+          <mat-error>
+            <span *ngIf="formGroup.get('name')?.hasError('required') && formGroup.get('name')?.touched">
+              El nombre del usuario es requerido
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form py-1">
+        <mat-form-field class="stylesForm">
+          <input matInput placeholder="Email del Usuario" formControlName="email" required>
+          <mat-error>
+            <span *ngIf="formGroup.get('email')?.hasError('required') && formGroup.get('email')?.touched">
+              El email del usuario es requerido
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form py-1">
+        <mat-form-field class="stylesForm">
+          <input matInput placeholder="Contraseña del Usuario" formControlName="password" required>
+          <mat-error>
+            <span *ngIf="formGroup.get('password')?.hasError('required') && formGroup.get('password')?.touched">
+              La contraseña del usuario es requerida
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form mb-4 row m-0 justify-content-center">
+        <button mat-raised-button color="primary" type="submit" class="submit" [disabled]="formGroup.invalid">Actualizar
+          Usuario</button>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>

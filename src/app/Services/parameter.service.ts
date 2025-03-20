@@ -10,6 +10,7 @@ export class ParameterService {
   name: string = '';
 
   users: any = [];
+  passwordUser: string = '';
 
   //Task
   task: any = [];

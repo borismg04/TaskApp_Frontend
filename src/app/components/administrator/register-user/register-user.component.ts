@@ -38,7 +38,12 @@ export class RegisterUserComponent {
     model.Nombre = name;
     model.Email = email;
     model.Password = password;
+    this.parametersService.passwordUser = password;
+    console.log("this.parametersService.passwordUser: ", this.parametersService.passwordUser);
     model.Profile = profile;
+
+
+
 
     this.httpService.RegisterUser(model).subscribe(
       (x) => {
