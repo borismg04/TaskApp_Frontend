@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 export class AdministratorComponent {
 
   tableInfoUsers = new MatTableDataSource<UserModel>();
-  ColumnsUnfoUsers: string[] = ['id', 'name', 'email', 'profile','edit','delete'];
+  ColumnsUnfoUsers: string[] = ['id', 'name', 'email', 'profile', 'edit', 'delete'];
   showtableInfoUser: boolean = false;
   infoUsers: any = [];
   smallSize: boolean = false;
@@ -34,11 +34,9 @@ export class AdministratorComponent {
   GetUsers() {
     this.httpService.GetUsers().subscribe(
       (x: any) => {
-        console.log("x: ", x);
         if (x.statusCode == 200) {
           this.parameterService.users = x.result.users || [];
           this.tableInfoUsers = new MatTableDataSource(x.result);
-          console.log("x.result: ", x.result);
           this.showtableInfoUser = true;
         } else {
           this.parameterService.users = [];
@@ -112,8 +110,6 @@ export class AdministratorComponent {
   }
 
   ModalUpdateUser(userUpd: any) {
-    console.log('Usuario seleccionado para editar:', userUpd);
-
     let width = this.smallSize ? "90%" : "40%";
     const dialogRef = this.dialog.open(UpdateUserComponent, {
       width: width,

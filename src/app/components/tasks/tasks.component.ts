@@ -50,13 +50,22 @@ export class TasksComponent {
 
   applyFilter(filterValue: string) {
     const filter = filterValue.trim().toLowerCase();
-    this.tasks = this.allTasks.filter(task =>
-      task.nameTask.toLowerCase().includes(filter) ||
-      task.description.toLowerCase().includes(filter) ||
-      task.priority.toLowerCase().includes(filter) ||
-      task.state.toLowerCase().includes(filter) ||
-      task.userGestion.toLowerCase().includes(filter)
-    );
+    this.tasks = this.allTasks.filter(task => {
+      const taskDate = new Date(task.fecha).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit'
+      }).toLowerCase();
+
+      return task.nameTask.toLowerCase().includes(filter) ||
+        task.description.toLowerCase().includes(filter) ||
+        task.priority.toLowerCase().includes(filter) ||
+        task.state.toLowerCase().includes(filter) ||
+        task.userGestion.toLowerCase().includes(filter) ||
+        taskDate.includes(filter);
+    });
   }
 
   DeleteTask(id: any) {

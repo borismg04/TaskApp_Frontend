@@ -13,6 +13,4 @@ export class HomeComponent {
     private httpService: HttpService,
     private parameterService: ParameterService,
   ) { }
-
-
 }

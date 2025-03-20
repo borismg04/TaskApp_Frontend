@@ -8,8 +8,8 @@ import { AdministratorComponent } from './components/administrator/administrator
 const routes: Routes = [
   { path: '', redirectTo: '/Login', pathMatch: 'full' },
   { path: 'Login', component: LoginComponent },
-  { path: 'Home', component: HomeComponent , canActivate: [authGuard] },
-  { path:'Admin', component: AdministratorComponent, canActivate: [authGuard] },
+  { path: 'Home', component: HomeComponent, canActivate: [authGuard] },
+  { path: 'Admin', component: AdministratorComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: '/Login', pathMatch: 'full' }
 ];
 

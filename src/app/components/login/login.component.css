@@ -1,19 +1,17 @@
-/* Establece el fondo para ocupar el 100% de la pantalla */
 .background-image {
   background-image: url("../../../assets/1.png");
   background-repeat: no-repeat;
-  background-size: cover; /* Cubre toda la pantalla sin deformarse */
-  background-position: center center; /* Centra la imagen */
-  background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
   background-color: #2268fe;
-  width: 100vw; /* 100% del ancho de la pantalla */
-  height: 100vh; /* 100% del alto de la pantalla */
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Contenedor principal */
 .box {
   display: flex;
   justify-content: center;
@@ -21,7 +19,6 @@
   min-height: 85vh;
 }
 
-/* Contenedor del formulario */
 .container {
   width: 350px;
   display: flex;
@@ -31,7 +28,6 @@
   border-radius: 10px;
 }
 
-/* Estilos para el encabezado */
 header {
   color: #fff;
   font-size: 20px;
@@ -41,23 +37,20 @@ header {
   padding: 10px 0;
 }
 
-/* Imagen del encabezado */
 .icon {
   display: block;
   width: 180px;
   margin: auto;
 }
 
-/* Contenedor de los inputs */
 .input-field {
   width: 100%;
   margin-top: 15px;
   position: relative;
 }
 
-/* Estilos para los inputs */
 .input {
-  width: 100%; /* Igual de ancho que el botón */
+  width: 100%;
   height: 45px;
   border: none;
   outline: none;
@@ -73,9 +66,8 @@ header {
   box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.4);
 }
 
-/* Botón de envío */
 .submit {
-  width: 100%; /* Mismo ancho que los inputs */
+  width: 100%;
   height: 45px;
   border: none;
   border-radius: 30px;
@@ -95,12 +87,10 @@ header {
   color: white;
 }
 
-/* Placeholder blanco */
 ::-webkit-input-placeholder {
   color: #fff;
 }
 
-/* Iconos dentro de los inputs */
 i {
   position: absolute;
   top: 50%;
@@ -110,7 +100,6 @@ i {
   z-index: 1;
 }
 
-/* Icono de visibilidad de contraseña */
 .ieye {
   position: absolute;
   top: 50%;
@@ -124,27 +113,24 @@ i {
   border: none;
 }
 
-/* Estilos para la sección final */
 .final {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Imagen de la sección final */
 .telefonica {
   width: 160px;
   margin: auto;
 }
 
-/* Texto centrado */
 .text {
   display: flex;
   color: white;
   justify-content: center;
   margin: 0;
 }
-.text-danger{
+
+.text-danger {
   color: white;
 }
-

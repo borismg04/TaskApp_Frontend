@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators,FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { UserModel } from 'src/app/Models/UserModel';
 import { HttpService } from 'src/app/Services/http.service';
@@ -39,11 +39,7 @@ export class RegisterUserComponent {
     model.Email = email;
     model.Password = password;
     this.parametersService.passwordUser = password;
-    console.log("this.parametersService.passwordUser: ", this.parametersService.passwordUser);
     model.Profile = profile;
-
-
-
 
     this.httpService.RegisterUser(model).subscribe(
       (x) => {

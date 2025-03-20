@@ -6,4 +6,3 @@ export class TaskModel {
   priority: string | undefined;
   state: string | undefined;
 }
-

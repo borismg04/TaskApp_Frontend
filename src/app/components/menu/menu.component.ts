@@ -12,13 +12,13 @@ export class MenuComponent {
   constructor(
     public parameterServices: ParameterService,
     private router: Router,
-  ){}
+  ) { }
 
-  RedirectToAdmin(){
+  RedirectToAdmin() {
     this.router.navigate(['/Admin']);
   }
 
-  RedirectToHome(){
+  RedirectToHome() {
     this.router.navigate(['/Home']);
   }
 }

@@ -17,8 +17,7 @@
         <mat-form-field class="stylesForm">
           <input matInput placeholder="Descripción de la Tarea" formControlName="description" required>
           <mat-error>
-            <span
-              *ngIf="formGroup.get('description')?.hasError('required') && formGroup.get('description')?.touched">
+            <span *ngIf="formGroup.get('description')?.hasError('required') && formGroup.get('description')?.touched">
               La descripción de la tarea es requerida
             </span>
           </mat-error>
@@ -48,7 +47,8 @@
       </div>
 
       <div class="form mb-4 row m-0 justify-content-center">
-        <button mat-raised-button color="primary" type="submit" class="submit" [disabled]="formGroup.invalid">Crear Tarea</button>
+        <button mat-raised-button color="primary" type="submit" class="submit" [disabled]="formGroup.invalid">Crear
+          Tarea</button>
       </div>
     </form>
   </div>

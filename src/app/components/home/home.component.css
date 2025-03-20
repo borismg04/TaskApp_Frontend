@@ -1,25 +1,23 @@
-/* filepath: c:\Users\bmonroyg\OneDrive - NTT DATA EMEAL\Desktop\TaskApp_Frontend\src\app\components\home\home.component.scss */
 :host {
   display: block;
-  background-image: url('../../../assets/2.png'); /* Ruta relativa a la carpeta 'assets' */
-  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
-  background-position: center; /* Centra la imagen */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+  background-image: url('../../../assets/2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
   padding: 0;
   margin: 0;
 }
 
-/* Establece el fondo para ocupar el 100% de la pantalla */
 .background-image {
   background-image: url("../../../assets/2.png");
   background-repeat: no-repeat;
-  background-size: cover; /* Cubre toda la pantalla sin deformarse */
-  background-position: center center; /* Centra la imagen */
-  background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
   background-color: #2268fe;
-  width: 100vw; /* 100% del ancho de la pantalla */
-  height: 100vh; /* 100% del alto de la pantalla */
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,7 +67,8 @@ header {
 
 /* Estilos para los inputs */
 .input {
-  width: 100%; /* Igual de ancho que el botón */
+  width: 100%;
+  /* Igual de ancho que el botón */
   height: 45px;
   border: none;
   outline: none;
@@ -87,7 +86,8 @@ header {
 
 /* Botón de envío */
 .submit {
-  width: 100%; /* Mismo ancho que los inputs */
+  width: 100%;
+  /* Mismo ancho que los inputs */
   height: 45px;
   border: none;
   border-radius: 30px;
@@ -154,7 +154,7 @@ i {
   justify-content: center;
   margin: 0;
 }
-.text-danger{
+
+.text-danger {
   color: white;
 }
-

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'TaskApp_FrontEnd';
 
-  constructor(){
+  constructor() {
     localStorage.removeItem('isAuthenticated');
   }
 }

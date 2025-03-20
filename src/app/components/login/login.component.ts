@@ -62,7 +62,6 @@ export class LoginComponent {
           }
         },
         (error) => {
-          console.log('Error del backend al ingresar:', error);
           Swal.fire({
             title: 'Error',
             text: 'Contraseña errónea',

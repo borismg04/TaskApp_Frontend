@@ -10,10 +10,13 @@
           <input type="text" class="input" placeholder="Email" formControlName="Email" required>
         </div>
         <div class="input-field">
-          <input [type]="hidePassword ? 'password' : 'text'" class="input" #inputPass placeholder="Contraseña" formControlName="Password" required autocomplete="off">
+          <input [type]="hidePassword ? 'password' : 'text'" class="input" #inputPass placeholder="Contraseña"
+            formControlName="Password" required autocomplete="off">
           <i class="bx bx-lock-alt"></i>
-          <button type="button" class="material-icons btnIcon ieye" *ngIf="hidePassword" (click)="togglePasswordVisibility()">visibility</button>
-          <button type="button" class="material-icons btnIcon ieye" *ngIf="!hidePassword" (click)="togglePasswordVisibility()">visibility_off</button>
+          <button type="button" class="material-icons btnIcon ieye" *ngIf="hidePassword"
+            (click)="togglePasswordVisibility()">visibility</button>
+          <button type="button" class="material-icons btnIcon ieye" *ngIf="!hidePassword"
+            (click)="togglePasswordVisibility()">visibility_off</button>
 
         </div>
         <div class="input-field">

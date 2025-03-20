@@ -78,43 +78,39 @@ legend {
 
 .mat-mdc-select-placeholder {
   transition:
-color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1);
   color: rgb(0, 0, 0) !important;
 }
 
-.mat-mdc-select-placeholder ::mat-mdc-select-min-line ng-tns-c3393473648-4 ng-star-inserted{
+.mat-mdc-select-placeholder ::mat-mdc-select-min-line ng-tns-c3393473648-4 ng-star-inserted {
   color: rgb(0, 0, 0) !important;
 }
 
 ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input {
-  color: black !important; /* Asegura que el texto ingresado sea negro */
+  color: black !important;
 }
 
 ::ng-deep .mat-mdc-select-placeholder {
   transition:
-color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1);
   color: #646464 !important;
 }
 
-/* Asegura que el texto ingresado en los inputs sea negro */
 ::ng-deep .mat-mdc-form-field .mdc-text-field__input {
-  color: black !important; /* Texto ingresado en negro */
+  color: black !important;
 }
 
-/* Asegura que el texto seleccionado en los selects sea negro */
 ::ng-deep .mat-mdc-select-value {
-  color: black !important; /* Texto seleccionado en negro */
+  color: black !important;
 }
 
-/* Asegura que el placeholder de los selects sea gris */
 ::ng-deep .mat-mdc-select-placeholder {
-  color: #646464 !important; /* Placeholder en gris */
+  color: #646464 !important;
 }
 
-/* Asegura que el placeholder de los inputs sea gris */
 ::ng-deep .mdc-text-field__input::placeholder {
-  color: #646464 !important; /* Placeholder en gris */
-  opacity: 1; /* Asegura que el color sea visible */
+  color: #646464 !important;
+  opacity: 1;
 }
 
 .submit {

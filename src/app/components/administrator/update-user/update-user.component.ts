@@ -22,21 +22,18 @@ export class UpdateUserComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.formGroup = this.formBuilder.group({
-      'name': [data?.nombre || null , [Validators.required]],
-      'email': [data?.email || null , [Validators.required]],
-      'password': [data?.password || null , [Validators.required]],
+      'name': [data?.nombre || null, [Validators.required]],
+      'email': [data?.email || null, [Validators.required]],
+      'password': [data?.password || null, [Validators.required]],
     });
   }
 
   UpdateUser() {
-    console.log("this.data: ", this.data);
-
     let model = new UserModel();
-    model.id = this.data.user.id;
-    console.log("model.id: ", model.id);
+    model.id = this.data.id;
     model.Nombre = this.formGroup.get('name')!.value;
     model.Email = this.formGroup.get('email')!.value;
-    model.Password = this.parametersService.passwordUser;
+    model.Password = this.formGroup.get('password')!.value;
     model.Profile = 'User';
 
     this.httpService.UpdateUser(model).subscribe(
