@@ -1,3 +1,15 @@
+/* filepath: c:\Users\bmonroyg\OneDrive - NTT DATA EMEAL\Desktop\TaskApp_Frontend\src\app\components\home\home.component.scss */
+:host {
+  display: block;
+  background-image: url('../../../assets/2.png'); /* Ruta relativa a la carpeta 'assets' */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+  padding: 0;
+  margin: 0;
+}
+
 /* Establece el fondo para ocupar el 100% de la pantalla */
 .background-image {
   background-image: url("../../../assets/2.png");
