@@ -15,6 +15,9 @@ Para acceder a la aplicación como administrador, utiliza las siguientes credenc
 - **Correo:** admin@ad.com  
 - **Contraseña:** administrator  
 
+![image](https://github.com/user-attachments/assets/d0efa6b1-ff17-40b3-9a30-4fce4308049f)
+
+
 ## Características
 
 - Crear, editar y eliminar tareas.
