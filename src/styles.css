@@ -28,17 +28,3 @@ body {
   -webkit-border-radius: 1ex;
   border-radius: 1ex;
 }
-
-/* .background-image {
-  background-image: url("assets/2.png") !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-attachment: fixed !important;
-  background-color: #2268fe;
-  width: 100vw !important;
-  height: 100vh !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */

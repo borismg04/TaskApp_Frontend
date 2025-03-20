@@ -1,0 +1,65 @@
+<app-menu></app-menu>
+<h1 class="w-100 text-center pb-3 pt-4 mb-0 text-gray">Usuarios</h1>
+
+<div class="col-12 row m-0 justify-content-center">
+  <div class="col-11 row bgblue">
+    <div class="col-12 row m-0 p-0 py-3 text-gray">
+      <div class="col-8 row m-0 justify-content-start align-items-center">
+        <span class="px-3 txt">
+          Información Registros:
+        </span>
+      </div>
+
+      <div class="col-4 row m-0 p-0  justify-content-end">
+        <button mat-flat-button class="button" color="accent" [disabled]="false" (click)="ModalRegisterUser()">
+          Registrar Usuario
+        </button>
+      </div>
+
+      <div class="col-12 row m-0 p-0 pt-2 mt-2" *ngIf="this.showtableInfoUser">
+        <table mat-table [dataSource]="this.tableInfoUsers" class="tableround">
+
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="profile">
+            <th mat-header-cell *matHeaderCellDef> Perfil </th>
+            <td mat-cell *matCellDef="let element"> {{element.profile}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> Editar </th>
+            <td mat-cell *matCellDef="let element">
+              <span class="material-icons" style="color: #0197fa; cursor: pointer;"
+                (click)="ModalUpdateUser()">edit</span>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+            <td mat-cell *matCellDef="let element">
+              <span class="material-icons" style="color: #ff0000; cursor: pointer;" (click)="DeleteUser()">delete</span>
+            </td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="this.ColumnsUnfoUsers"></tr>
+          <tr mat-row *matRowDef="let row; columns: this.ColumnsUnfoUsers;"></tr>
+
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

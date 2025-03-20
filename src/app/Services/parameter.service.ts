@@ -9,6 +9,8 @@ export class ParameterService {
   password: string = '';
   name: string = '';
 
+  users: any = [];
+
   //Task
   task: any = [];
 
@@ -17,5 +19,8 @@ export class ParameterService {
   resetvalues() {
     this.email = '';
     this.password = '';
+    this.name = '';
+    this.users = [];
+    this.task
   }
 }

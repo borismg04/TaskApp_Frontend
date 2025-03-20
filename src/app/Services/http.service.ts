@@ -11,11 +11,19 @@ import { ParameterService } from './parameter.service';
 })
 export class HttpService {
 
+  //Login
   private urlLogin = 'Login/login';
+
+  //API - Task
   private urlGetTasks = 'Task/GetTasks';
   private urlCreateTask = 'Task/CreateTask';
   private urlUpdateTask = 'Task/UpdateTask';
   private urlDeleteTask = 'Task/DeleteTask';
+
+  //API - Users
+  private urlGetUsers = 'Users/GetUsuarios';
+  private urlRegisterUsers = 'Auth/Register';
+  private urlUpdateUsers = 'Users/UpdateUser';
 
   constructor(
     private http: HttpClient,
@@ -92,6 +100,32 @@ export class HttpService {
     this.setHeader();
     return this.http.delete<any>(
       this.GetUrl(this.urlDeleteTask + '?id=' + id),
+      this.httpOptions
+    );
+  }
+
+  GetUsers(): Observable<any> {
+    this.setHeader();
+    return this.http.get<any>(
+      this.GetUrl(this.urlGetUsers),
+      this.httpOptions
+    );
+  }
+
+  RegisterUser(model: any): Observable<any> {
+    this.setHeader();
+    return this.http.post<any>(
+      this.GetUrl(this.urlRegisterUsers),
+      model,
+      this.httpOptions
+    );
+  }
+
+  UpdateUser(model: any): Observable<any> {
+    this.setHeader();
+    return this.http.post<any>(
+      this.GetUrl(this.urlUpdateUsers),
+      model,
       this.httpOptions
     );
   }

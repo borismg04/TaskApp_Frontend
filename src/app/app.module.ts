@@ -12,11 +12,15 @@ import { MenuComponent } from './components/menu/menu.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { CreateTasksComponent } from './components/tasks/create-tasks/create-tasks.component';
 import { UpdateTasksComponent } from './components/tasks/update-tasks/update-tasks.component';
+import { AdministratorComponent } from './components/administrator/administrator.component';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { RegisterUserComponent } from './components/administrator/register-user/register-user.component';
+import { UpdateUserComponent } from './components/administrator/update-user/update-user.component';
 
 
 @NgModule({
@@ -28,6 +32,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     TasksComponent,
     CreateTasksComponent,
     UpdateTasksComponent,
+    AdministratorComponent,
+    RegisterUserComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
