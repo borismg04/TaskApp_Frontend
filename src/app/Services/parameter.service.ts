@@ -8,6 +8,7 @@ export class ParameterService {
   email: string = '';
   password: string = '';
   name: string = '';
+  profile: string = '';
 
   users: any = [];
   passwordUser: string = '';
@@ -22,6 +23,8 @@ export class ParameterService {
     this.password = '';
     this.name = '';
     this.users = [];
-    this.task
+    this.task = [];
+    this.passwordUser = '';
+    this.profile = '';
   }
 }

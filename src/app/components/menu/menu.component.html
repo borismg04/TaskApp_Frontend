@@ -4,7 +4,7 @@
       <img class="icon" src="../../../assets/logo.png" alt="waiting for image" />
     </span>
 
-    <span class="p-auto justify-content-start menuItem">
+    <span class="p-auto justify-content-start menuItem" *ngIf="this.parameterServices.profile === 'SuperAdmin'">
       <img class="icon_user" src="../../../assets/administracion.png" alt="waiting for image" />
       <label style="margin-left: 0.5rem;" (click)="RedirectToAdmin()">Administrador</label>
     </span>

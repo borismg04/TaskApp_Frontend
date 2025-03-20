@@ -19,7 +19,7 @@ export class CreateTasksComponent {
   formGroup: FormGroup;
 
   priority: any = ['Alta', 'Media', 'Baja'];
-  state: any = ['Gestionado', 'Pendiente', 'En proceso'];
+  state: any = ['Pendiente', 'En proceso'];
 
   constructor(
     public httpService: HttpService,
